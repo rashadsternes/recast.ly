@@ -30,6 +30,7 @@ class App extends React.Component {
 
 
   onTitleClick (videoChild) {
+    console.log(videoChild);
     this.setState({ current: videoChild });
   }
 
