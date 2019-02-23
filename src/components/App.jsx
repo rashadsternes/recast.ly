@@ -1,22 +1,3 @@
-// var App = () => (
-//   <div>
-//     <nav className="navbar">
-//       <div className="col-md-6 offset-md-3">
-//         <div><h5><em></em> <Search /> </h5></div>
-//       </div>
-//     </nav>
-//     <div className="row">
-//       <div className="col-md-7">
-//         <div><h5><em></em> <VideoPlayer video={exampleVideoData[0]}/> </h5></div>
-//       </div>
-//       <div className="col-md-5">
-//         <div><h5><em></em> <VideoList videos={exampleVideoData} /></h5></div>
-//       </div>
-//     </div>
-//   </div>
-// );
-
-//class Welcome extends React.Component
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,16 +9,12 @@ class App extends React.Component {
     };
   }
 
-
   onTitleClick (videoChild) {
     console.log(videoChild);
     this.setState({ current: videoChild });
   }
 
   render() {
-    // var vidChange = {
-    //   fontWeight: this.state.done ?  "800" : "100"
-    // };
     const {data} = this.state;
 
     return (
