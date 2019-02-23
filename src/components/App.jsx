@@ -20,26 +20,24 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    this.onTitleClick = this.onTitleClick.bind(this);
     // 'state' is just an object literal
     this.state = {
+      data: exampleVideoData,
       current: exampleVideoData[0]
     };
-    // this.playerState = {
-    //   done: props.snipppet.title
-    // };
   }
 
-  onTitleClick() {
-    this.setState({
-      current: this
-    });
+
+  onTitleClick (videoChild) {
+    this.setState({ current: videoChild });
   }
 
   render() {
-    var vidChange = {
-      fontWeight: this.state.done ?  "800" : "100"
-    };
+    // var vidChange = {
+    //   fontWeight: this.state.done ?  "800" : "100"
+    // };
+    const {data} = this.state;
 
     return (
       <div>
@@ -54,8 +52,8 @@ class App extends React.Component {
           </div>
           <div className="col-md-5">
             <div><h5><em></em> <VideoList
-              videos={exampleVideoData}
-              current={this.state.current}
+              videos={data} // this.state.data
+              onTitleClick={this.onTitleClick}
             /></h5></div>
           </div>
         </div>
