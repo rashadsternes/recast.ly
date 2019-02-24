@@ -2,11 +2,36 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onTitleClick = this.onTitleClick.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
     // 'state' is just an object literal
     this.state = {
-      data: exampleVideoData,
+      data: [],
       current: exampleVideoData[0]
     };
+  }
+
+  componentDidMount() {
+    // Here we make our ajax call with youtube search and set our state
+    //function (options, callback, errorCB = null)
+
+    var givemeresults;
+    searchYouTube(
+      {
+        'key': window.YOUTUBE_API_KEY,
+        'max': 5,
+        'query': 'Cars'
+      }, function (results) {
+        //await results
+        debugger;
+        givemeresults = results;
+      }
+    );
+
+    setTimeout(() => {
+      // console.log(givemeresults, 'well suceess');
+      this.setState({ data: givemeresults });
+      this.setState({ current: givemeresults[0] });
+    }, 500);
   }
 
   onTitleClick (videoChild) {
