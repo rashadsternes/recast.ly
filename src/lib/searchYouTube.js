@@ -1,4 +1,14 @@
-var searchYouTube = function (options, callback, errorCB = null) {
+var defaultOp = {
+  'key': window.YOUTUBE_API_KEY,
+  'max': 5,
+  'query': 'Blues'
+};
+
+var defaultCB = function (data) {
+  // Not sure
+};
+
+var searchYouTube = function (options = defaultOp, callback, errorCB = null) {
   // options will be based on user search input
   // TODO
   // declare the server
