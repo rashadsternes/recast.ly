@@ -6,15 +6,16 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // 'state' is just an object literal
     this.state = {
-      data: exampleVideoData,
+      data: [],
       current: exampleVideoData[0],
-      query: ''
+      query: '',
+      isLoaded: false,
     };
   }
 
   componentDidMount(event) {
     // Here we make our ajax call with youtube search and set our state
-    searchYouTube(
+    this.props.searchYouTube(
       {
         'key': window.YOUTUBE_API_KEY,
         'max': 5,
@@ -35,14 +36,12 @@ class App extends React.Component {
   // handle search submit button
   handleSubmit (event) {
     this.setState({ query: event });
-    console.log(`A search request ${event}, new state ${this.state.query}`);
   }
 
   render() {
-    const {data} = this.state;
+    const {data, isLoaded} = this.state;
     return (
       <div>
-
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
             <div><h5><em></em> <Search
@@ -62,9 +61,7 @@ class App extends React.Component {
               onTitleClick={this.onTitleClick}
             /></h5></div>
           </div>
-
         </div>
-
       </div>
     );
   }
