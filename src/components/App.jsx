@@ -9,23 +9,17 @@ class App extends React.Component {
       data: [],
       current: exampleVideoData[0],
       query: '',
-      isLoaded: false,
     };
   }
 
-  componentDidMount(event) {
+  componentDidMount(searchQuery) {
     // Here we make our ajax call with youtube search and set our state
-    this.props.searchYouTube(
-      {
-        'key': window.YOUTUBE_API_KEY,
-        'max': 5,
-        'query': event || 'train'
-      }, videoList => {
-        this.setState( {
-          data: videoList,
-          current: videoList[0]
-        });
-      }
+    this.props.searchYouTube({'query': searchQuery}, videoList => {
+      this.setState( {
+        data: videoList,
+        current: videoList[0]
+      });
+    }
     );
   }
 
@@ -39,7 +33,7 @@ class App extends React.Component {
   }
 
   render() {
-    const {data, current, isLoaded} = this.state;
+    const {data, current} = this.state;
     return (
       <div>
         <nav className="navbar">
