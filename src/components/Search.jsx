@@ -1,6 +1,6 @@
 var Search = (props) => (
   <div className="search-bar form-inline">
-    <input id="search" className="form-control" type="text" onChange={function(e) {
+    <input id="search" className="form-control" type="text" onChange={function(event) {
       props.componentDidMount(event.target.value);
     }}/>
     <button className="btn hidden-sm-down" onClick={function() {
