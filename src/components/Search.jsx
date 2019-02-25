@@ -4,7 +4,10 @@ var Search = (props) => (
       props.componentDidMount(event.target.value);
     }}/>
     <button className="btn hidden-sm-down" onClick={function() {
-      props.componentDidMount(document.getElementById('search').value);
+      debounce(
+        props.componentDidMount(document.getElementById('search').value)
+        ,500
+      );
     }}>
       <span className="glyphicon glyphicon-search"></span>
     </button>

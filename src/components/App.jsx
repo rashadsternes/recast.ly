@@ -33,13 +33,13 @@ class App extends React.Component {
     this.setState({ current: videoChild });
   }
 
-  // handle search submit button
+  // Handle search submit button
   handleSubmit (event) {
     this.setState({ query: event });
   }
 
   render() {
-    const {data, isLoaded} = this.state;
+    const {data, current, isLoaded} = this.state;
     return (
       <div>
         <nav className="navbar">
@@ -53,11 +53,11 @@ class App extends React.Component {
         <div className="row">
           <div className="col-md-7">
             <div><h5><em></em> <VideoPlayer
-              video={this.state.current}/> </h5></div>
+              video={current}/> </h5></div>
           </div>
           <div className="col-md-5">
             <div><h5><em></em> <VideoList
-              videos={data} // this.state.data
+              videos={data}
               onTitleClick={this.onTitleClick}
             /></h5></div>
           </div>
