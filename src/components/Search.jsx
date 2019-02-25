@@ -1,13 +1,14 @@
 var Search = (props) => (
   <div className="search-bar form-inline">
-    <input id="search" className="form-control" type="text" onChange={function(event) {
-      props.componentDidMount(event.target.value);
-    }}/>
+    <input id="search"
+      className="form-control"
+      type="text"
+      onChange={ function (event) {
+        props.componentDidMount(event.target.value);
+      }}
+    />
     <button className="btn hidden-sm-down" onClick={function() {
-      debounce(
-        props.componentDidMount(document.getElementById('search').value)
-        ,500
-      );
+      props.componentDidMount(document.getElementById('search').value);
     }}>
       <span className="glyphicon glyphicon-search"></span>
     </button>

@@ -2,13 +2,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.onTitleClick = this.onTitleClick.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentDidMount = _.debounce(this.componentDidMount.bind(this), 500);
     this.handleSubmit = this.handleSubmit.bind(this);
     // 'state' is just an object literal
     this.state = {
       data: [],
       current: exampleVideoData[0],
-      query: '',
+      query: ''
     };
   }
 
